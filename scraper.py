@@ -35,11 +35,11 @@ def check_exists_by_xpath(xpath):
     except WebDriverException:
         return False
     return True
-
+time.sleep(5)
 num = soup.findAll('h4')
 dateList = []
 for link in num:
-    print(link)
+    # print(link)
     dateList.append(link.get_text())
 monthName = list(calendar.month_name[1:])
 # print(dateList)
