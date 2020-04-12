@@ -16,6 +16,7 @@ import requests
 import csv
 import time
 import calendar
+from datetime import datetime
 
 url = 'https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/'
 
@@ -38,7 +39,7 @@ def check_exists_by_xpath(xpath):
 num = soup.findAll('h4')
 dateList = []
 for link in num:
-    # print(link)
+    print(link)
     dateList.append(link.get_text())
 monthName = list(calendar.month_name[1:])
 # print(dateList)
@@ -54,16 +55,6 @@ noofdays = len(presentDates)
 # print(noofdays)
 cleanedData = []
 
-# test = driver.find_element_by_xpath('//*[@id="mvp-content-main"]/ul[3]').text
-# testNew = test.splitlines()
-# cleanedData.append(presentDates[0])
-# print('******************')
-# for sentence in testNew:
-#     cleanedData.append(sentence)
-# print(cleanedData)
-# print(type(cleanedData))
-# df = pd.DataFrame(cleanedData)
-# print(df.head())
 
 dateCounter = 0
 for i in range(3, noofdays+3):
@@ -74,13 +65,7 @@ for i in range(3, noofdays+3):
         cleanedData.append(sentence)
     dateCounter+=1
 df = pd.DataFrame(cleanedData)
-df.to_csv('test.csv')
+filename = datetime.today().strftime('%Y-%m-%d')
 
-
-# dateName = driver.find_element_by_xpath('//*[@id="mvp-content-main"]/h4[1]')
-# //*[@id="mvp-content-main"]/h4[1]
-# //*[@id="mvp-content-main"]/h4[2]
-# //*[@id="mvp-content-main"]/ul[3]/li[1]/text()[1]
-# //*[@id="mvp-content-main"]/ul[3]/li[2]/text()[1]
-# //*[@id="mvp-content-main"]/ul[4]/li[1]/text()[1]
+df.to_csv(str(filename)+'.csv', index=False)
 
