@@ -8,8 +8,8 @@ Web scraping BNO news for coronatracker.com as part of https://github.com/thelea
 4. Run script
 
 ## Results
-Scrapes all timeline related information
+__Scrapes all timeline related information__
 ![Timeline](../master/Pictures/timeline.png)
 
-The output is a csv file generated based on today's date
+__The output is a csv file generated based on today's date__
 ![output](../master/Pictures/output.png)
