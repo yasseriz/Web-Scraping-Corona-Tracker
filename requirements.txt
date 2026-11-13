@@ -1,7 +1,7 @@
 -i https://pypi.org/simple
 beautifulsoup4==4.9.0
 selenium==3.141.0
-soupsieve==2.9
+soupsieve==4.0
 urllib3==2.8.0
 pandas==1.0.3
 calendar==1.11.4
